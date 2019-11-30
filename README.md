@@ -21,9 +21,9 @@ Software Engineering Fall 2019 Group Project
     - [ ] Function Point Analysis
         - Assigned: Rudy
         - Status:
-    - [ ] Project Development Work Plan (Gantt chart)
+    - [x] Project Development Work Plan (Gantt chart)
         - Assigned: Chunxiao
-        - Status:
+        - Status: Draft Complete
     - [ ] Choose and Justify Software Process Model
         - Assigned: Chunxiao
         - Status:
