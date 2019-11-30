@@ -9,10 +9,10 @@ Software Engineering Fall 2019 Group Project
     - [x]  System Request: 
         - Assigned: All
         - Status: Complete
-    - [ ] System Requirements Specifications
+    - [x] System Requirements Specifications
         - Assigned: Yiming
         - Status: Complete, Needs revision
-    - [ ] Requirement Gathering Report
+    - [x] Requirement Gathering Report
         - Assigned: Yiming
         - Status: Complete
     - [ ] Feasibility Study
