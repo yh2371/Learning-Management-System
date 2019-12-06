@@ -35,10 +35,10 @@ Software Engineering Fall 2019 Group Project
     - [ ] Use Case Model (Use Case Diagram + Use Case Documentation):
         - Assigned: Rudy
         - Status:
-    - [ ] Activity Diagram for 2 Key Use Cases:
+    - [x] Activity Diagram for 2 Key Use Cases:
         -  Assigned: Chunxiao
         - Status:
-    - [ ] Sequence Diagram for 2 Key Use Cases:
+    - [x] Sequence Diagram for 2 Key Use Cases:
         -  Assigned: Chunxiao
         - Status: 
     - [x] Class Diagram:
