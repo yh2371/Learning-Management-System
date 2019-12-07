@@ -1,6 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import '../semantic/dist/semantic.min.css'
+import '../node_modules/antd/dist/antd.min.css'
+import '../node_modules/jquery/dist/jquery.min.js'
 
 const Home = () => (
   <div>
@@ -11,6 +14,10 @@ const Home = () => (
 
     <Nav />
 
+    <div className="">
+      <p className = "item">Tower of Babel</p>
+      <img className = "item" src="../static/materials/logo.png"></img>
+    </div>
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>
       <p className="description">
@@ -37,6 +44,12 @@ const Home = () => (
     </div>
 
     <style jsx>{`
+      .side{
+        width: 20%;
+        height: 100%;
+        border: 1px solid red;
+        padding: 10px;
+      }
       .hero {
         width: 100%;
         color: #333;
