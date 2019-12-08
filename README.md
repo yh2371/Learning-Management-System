@@ -27,9 +27,6 @@ Software Engineering Fall 2019 Group Project
     - [ ] Choose and Justify Software Process Model
         - Assigned: Chunxiao
         - Status:
-    - [ ] Website Structure Outline
-        - Assigned: Ellen
-        - Status: 
         
 2. Week 2:
     - [ ] Use Case Model (Use Case Diagram + Use Case Documentation):
@@ -44,15 +41,21 @@ Software Engineering Fall 2019 Group Project
     - [x] Class Diagram:
         - Assigned: Yiming
         - Status: Draft complete, open to revision
-    - [ ] UI Design:
+    - [x] UI Design:
         -  Assigned: Ellen
-        - Status: 
+        - Status: Outlined Draft 
     -  [ ] UI Implementation:
         - Assigned: 
         - Status: 
 
 3. Week 3:
     - [ ] Implementation
+        - [ ] Login and Registration
+        - [ ] Enrollment
+        - [ ] File Upload and Gradebook
+        - [ ] Forum and Posts
+        - [ ] Feedback Form and Course Request
+        - [ ] Notifications and Events
     - [ ] Implementation Documentation
     - [ ] Test Plan
     - [ ] Test Cases
