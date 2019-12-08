@@ -181,6 +181,17 @@ class Register extends React.Component {
       alert('Password entries do not match: ' + "Please re-enter your password");
       this.setState({password:"", confirm_password:""});
     }
+    else{
+      const content = () => {
+      if (this.state.loading) {
+        return <Spinner size='8x' spinning='spinning' />
+      }
+
+      // The server is awake! React Router is used to either show the
+      // <Landing /> component where the emails are collected or the <Confirm />
+      // component where the emails are confirmed.
+      return (
+    }
     event.preventDefault();
   }
   render() {

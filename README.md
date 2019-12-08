@@ -6,7 +6,7 @@ Software Engineering Fall 2019 Group Project
 #### Software Engineering Project Checklist:
 
 1. Week 1:
-    - [x]  System Request: 
+    - [x]  System Request:
         - Assigned: All
         - Status: Complete
     - [x] System Requirements Specifications
@@ -27,30 +27,35 @@ Software Engineering Fall 2019 Group Project
     - [ ] Choose and Justify Software Process Model
         - Assigned: Chunxiao
         - Status:
-        
+
 2. Week 2:
-    - [ ] Use Case Model (Use Case Diagram + Use Case Documentation):
+    - [x] Use Case Model (Use Case Diagram + Use Case Documentation):
         - Assigned: Rudy
-        - Status:
+        - Status: Complete
     - [x] Activity Diagram for 2 Key Use Cases:
         -  Assigned: Chunxiao
-        - Status:
+        - Status: Complete
     - [x] Sequence Diagram for 2 Key Use Cases:
         -  Assigned: Chunxiao
-        - Status: 
+        - Status: Complete
     - [x] Class Diagram:
         - Assigned: Yiming
         - Status: Draft complete, open to revision
     - [x] UI Design:
-        -  Assigned: Ellen
-        - Status: Outlined Draft 
-    -  [ ] UI Implementation:
-        - Assigned: 
-        - Status: 
+        - Assigned: Ellen and Yiming
+        - Status: Outlined Draft
 
 3. Week 3:
     - [ ] Implementation
+        - [ ] Homepage
+          - Ellen
+          - Status: In process
         - [ ] Login and Registration
+          - Yiming
+          - Status: UI Done, server communication in process
+        - [ ] Server and Database (MongoDB)
+          - Yiming
+          - Status: In progress
         - [ ] Enrollment
         - [ ] File Upload and Gradebook
         - [ ] Forum and Posts
