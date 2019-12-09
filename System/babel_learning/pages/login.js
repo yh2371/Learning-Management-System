@@ -1,10 +1,141 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Nav from '../components/nav'
 import '../semantic/dist/semantic.min.css'
 import '../node_modules/antd/dist/antd.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
+import fetch from 'isomorphic-unfetch'
+import Account from '../components/account'
+import { login } from '../utils/auth'
+
+class LoginForm extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = { username: '', password: '' , error: ''}
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(){
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  async handleSubmit (event) {
+    event.preventDefault();
+    const username = this.state.username;
+    const password = this.state.password;
+    const url = this.props.apiUrl;
+    console.log(url);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password})
+      })
+      console.log(response);
+      if (response.ok) {
+        const { token } = await response.json()
+        login({ token })
+      } else {
+        console.log('Login failed.')
+        let error = new Error(response.statusText)
+        error.response = response
+        return Promise.reject(error)
+      }
+    } catch (error) {
+      console.error(
+        'You have an error in your code or there are Network issues.',
+        error
+      )
+      throw new Error(error)
+    }
+  }
+
+  render() {
+    let source;
+    if (this.props.value == 0){
+      source = "../static/materials/book.png";
+    }
+    else{
+      source = "../static/materials/hat.png";
+    }
+    return(
+      <div className="login">
+        <div className="header">
+          <img src={source}/>
+          <label>Welcome back! Please login to your account!</label>
+        </div>
+        <form className="ui form" onSubmit={this.handleSubmit}>
+          <div className="field">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" value = {this.state.username} onChange={this.handleChange}/>
+          </div>
+          <div className="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+            </div>
+            <div className="field">
+              <button className="forgotpassword" onClick={this.props.onClick}>Forgot Password?</button>
+            </div>
+            <button className="ui button" type="submit">Login</button>
+            <button className="ui button" onClick={this.props.goback} goback={this.props.goback}>Back</button>
+        </form>
+        <style jsx>{`
+          .header img{
+            display: block;
+            width: 3vw;
+            margin: 10px 13.5vw;
+          }
+          label{
+            display: block;
+            font-family: avenir;
+          }
+          .header{
+            text-align: center;
+            color: gray;
+            font-size: 20px;
+            margin: 5vh 0;
+          }
+          .header label{
+            opacity: 0.6;
+          }
+          .login{
+            width:50vw;
+            padding: 15vh 10vw;
+          }
+          .forgotpassword{
+            border: none;
+            background-color: #FAF4EF;
+            font-family: avenir;
+            font-weight: bolder;
+            font-size: 14px;
+            cursor: pointer;
+          }
+          .forgotpassword:hover{
+            text-decoration: underline;
+          }
+          .button{
+            margin: 20px 10vw 10px 10vw;
+            font-family: avenir;
+            width: 10vw;
+            background-color: #43425D;
+            color: white;
+          }
+          .button:hover{
+            background-color: #9796AD;
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
 
 class Form extends React.Component {
   constructor(props) {
@@ -41,16 +172,16 @@ class Form extends React.Component {
           </div>;
         }
       else if (mode == 1){
-        page = <LoginForm value={0} onClick={()=> this.handleClick(4)} goBack={()=> this.handleClick(0)}/>;
+        page = <LoginForm apiUrl = {this.props.apiUrl} value={0} onClick={()=> this.handleClick(4)} goback={()=> this.handleClick(0)}/>;
       }
       else if (mode == 2){
-        page = <LoginForm value={1} onClick={()=> this.handleClick(4)} goBack={()=> this.handleClick(0)}/>;
+        page = <LoginForm apiUrl = {this.props.apiUrl} value={1} onClick={()=> this.handleClick(4)} goback={()=> this.handleClick(0)}/>;
       }
       else if (mode == 3){
-        page = <Register goBack={()=> this.handleClick(0)}/>;
+        page = <Register apiUrl = {this.props.apiUrl} goback={()=> this.handleClick(0)}/>;
       }
       else{
-        page = <ForgotPassword />;
+        page = <ForgotPassword apiUrl = {this.props.apiUrl} />;
       }
       return(
         <div>
@@ -114,7 +245,7 @@ class ForgotPassword extends React.Component {
             <input type="text" name="email" placeholder="Email" />
           </div>
             <button className="ui button" type="submit">Send Request</button>
-            <button className="ui button" onClick={this.props.goBack}>Cancel</button>
+            <button className="ui button" onClick={this.props.goback}>Cancel</button>
         </form>
         <style jsx>{`
           label{
@@ -181,17 +312,10 @@ class Register extends React.Component {
       alert('Password entries do not match: ' + "Please re-enter your password");
       this.setState({password:"", confirm_password:""});
     }
-    else{
-      const content = () => {
-      if (this.state.loading) {
-        return <Spinner size='8x' spinning='spinning' />
-      }
 
       // The server is awake! React Router is used to either show the
       // <Landing /> component where the emails are collected or the <Confirm />
       // component where the emails are confirmed.
-      return (
-    }
     event.preventDefault();
   }
   render() {
@@ -227,7 +351,7 @@ class Register extends React.Component {
             <input type="password" name="confirm_password" placeholder="Confirm Password" onChange={this.handleChange} value={this.state.confirm_password}/>
           </div>
           <button className="ui button" type="submit">Sign Up</button>
-          <button className="ui button" onClick={this.props.goBack} goBack={this.props.goBack}>Back</button>
+          <button className="ui button" onClick={this.props.goback} goback={this.props.goback}>Back</button>
         </form>
         <style jsx>{`
           h1, label{
@@ -263,129 +387,60 @@ class Register extends React.Component {
   }
 }
 
+class Login extends React.Component{
+  static getInitialProps ({ req }) {
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
 
-class LoginForm extends React.Component {
-  constructor(props){
-    super(props)
+    const apiUrl = process.browser
+      ? `${protocol}://${window.location.host}/api/login.js`
+      : `${protocol}://${req.headers.host}/api/login.js`
+    return { apiUrl }
   }
-  render() {
-    let source;
-    if (this.props.value == 0){
-      source = "../static/materials/book.png";
-    }
-    else{
-      source = "../static/materials/hat.png";
-    }
+  constructor(props){
+      super(props)
+  }
+  render(){
     return(
-      <div className="login">
-        <div className="header">
-          <img src={source}/>
-          <label>Welcome back! Please login to your account!</label>
-        </div>
-        <form className="ui form">
-          <div className="field">
-            <label>Username</label>
-            <input type="text" name="username" placeholder="Username" />
-          </div>
-          <div className="field">
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Password" />
-            </div>
-            <div className="field">
-              <button className="forgotpassword" onClick={this.props.onClick}>Forgot Password?</button>
-            </div>
-            <button className="ui button" type="submit">Login</button>
-            <button className="ui button" onClick={this.props.goBack} goBack={this.props.goBack}>Back</button>
-        </form>
-        <style jsx>{`
-          .header img{
-            display: block;
-            width: 3vw;
-            margin: 10px 13.5vw;
+      <div>
+      <Head>
+          <title>Welcome</title>
+          <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+      </Head>
+      <div className = "logo">
+          <Link href="/"><img src="/static/materials/babel.png">
+          </img></Link>
+      </div>
+      <div className = "form">
+          <Form apiUrl = {this.props.apiUrl}/>
+      </div>
+      <style jsx>{`
+          .logo{
+            width: 50vw;
+            height: 0;
+            padding: 35vh 5vw;
+            margin: 0px;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
-          label{
-            display: block;
-            font-family: avenir;
-          }
-          .header{
-            text-align: center;
-            color: gray;
-            font-size: 20px;
-            margin: 5vh 0;
-          }
-          .header label{
-            opacity: 0.6;
-          }
-          .login{
-            width:50vw;
-            padding: 15vh 10vw;
-          }
-          .forgotpassword{
-            border: none;
-            background-color: #FAF4EF;
-            font-family: avenir;
-            font-weight: bolder;
-            font-size: 14px;
+          .logo img {
+            width: 100%;
+            padding: 0px 0px;
             cursor: pointer;
           }
-          .forgotpassword:hover{
-            text-decoration: underline;
-          }
-          .button{
-            margin: 20px 10vw 10px 10vw;
-            font-family: avenir;
-            width: 10vw;
-            background-color: #43425D;
-            color: white;
-          }
-          .button:hover{
-            background-color: #9796AD;
+          .form{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50vw;
+            height: 100vh;
+            background-color: #FAF4EF;
           }
         `}</style>
       </div>
-    );
+    )
   }
 }
-
-const Login = () => (
-  <div>
-    <Head>
-      <title>Welcome</title>
-      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
-    </Head>
-    <div className = "logo">
-      <Link href="/"><img src="/static/materials/babel.png">
-      </img></Link>
-    </div>
-    <div className = "form">
-      <Form />
-    </div>
-    <style jsx>{`
-      .logo{
-        width: 50vw;
-        height: 0;
-        padding: 35vh 5vw;
-        margin: 0px;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      .logo img {
-        width: 100%;
-        padding: 0px 0px;
-        cursor: pointer;
-      }
-      .form{
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 50vw;
-        height: 100vh;
-        background-color: #FAF4EF;
-      }
-    `}</style>
-  </div>
-)
 
 export default Login
