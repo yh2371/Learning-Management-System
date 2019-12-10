@@ -12,7 +12,6 @@ import { login } from '../utils/auth'
 class LoginForm extends React.Component {
   constructor (props) {
     super(props)
-
     this.state = { username: '', password: '' , error: ''}
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -31,7 +30,7 @@ class LoginForm extends React.Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    const url = this.props.apiUrl;
+    const url = this.props.apiUrl+"/api/login.js";
     console.log(url);
     try {
       const response = await fetch(url, {
@@ -296,7 +295,40 @@ class Register extends React.Component {
       [name]: value
     });
   }
-  handleSubmit(event){
+  async handleSubmit(event){
+    event.preventDefault();
+    const firstname = this.state.first_name;
+    const lastname = this.state.last_name;
+    const email = this.state.email;
+    const username = this.state.username;
+    const password = this.state.password;
+    const url = this.props.apiUrl+"/api/register.js";
+    const confirmpassword = this.confirm_password;
+    const mode = 0;
+    console.log(url);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({firstname, lastname, email, username, password, confirmpassword, mode})
+      })
+      console.log(response);
+      if (response.ok) {
+        const { token } = await response.json()
+        register({ token })
+      } else {
+        console.log('Registration failed.')
+        let error = new Error(response.statusText)
+        error.response = response
+        return Promise.reject(error)
+      }
+    } catch (error) {
+      console.error(
+        'You have an error in your code or there are Network issues.',
+        error
+      )
+      throw new Error(error)
+    }
     if (this.state.first_name=="" || this.state.last_name=="" || this.state.email=="" || this.state.username=="" || this.state.password=="" || this.state.confirm_password==""){
       alert('Please fill out all required fields!')
     }
@@ -316,7 +348,6 @@ class Register extends React.Component {
       // The server is awake! React Router is used to either show the
       // <Landing /> component where the emails are collected or the <Confirm />
       // component where the emails are confirmed.
-    event.preventDefault();
   }
   render() {
     return(
@@ -392,8 +423,8 @@ class Login extends React.Component{
     const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
 
     const apiUrl = process.browser
-      ? `${protocol}://${window.location.host}/api/login.js`
-      : `${protocol}://${req.headers.host}/api/login.js`
+      ? `${protocol}://${window.location.host}`
+      : `${protocol}://${req.headers.host}`
     return { apiUrl }
   }
   constructor(props){

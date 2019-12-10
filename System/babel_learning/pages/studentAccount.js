@@ -6,6 +6,7 @@ import '../semantic/dist/semantic.min.css'
 import '../node_modules/antd/dist/antd.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
 import { withAuthSync } from '../utils/auth'
+import { logout } from '../utils/auth'
 
 const StudentAccount = props => {
   const { name, login, courses, notifications, posts } = props.data
@@ -29,7 +30,7 @@ const StudentAccount = props => {
         <div className="rightlogout">
           <p>Welcome {login}</p>
           <img src="../static/materials/person.png"/>
-          <button>Logout</button>
+          <button onClick={logout}>Logout</button>
         </div>
       </div>
       <div className="tab">
@@ -75,6 +76,7 @@ const StudentAccount = props => {
           display: inline-block;
           margin: 0px 30px;
           font-family: avenir;
+          font-size: 18px;
         }
         .rightlogout img{
           display: inline-block;
