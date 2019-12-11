@@ -206,7 +206,6 @@ class AddNewPost extends React.Component {
               </Card>
           ))}
 
-        
       </Container>
     );
   }
