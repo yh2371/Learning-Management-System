@@ -8,6 +8,7 @@ const dev = async (req, res) => {
       await account(req, res);
       break;
     case "/api/login.js":
+      console.log("pass");
       await login(req, res);
       break;
 

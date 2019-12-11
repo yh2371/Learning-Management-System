@@ -1,11 +1,11 @@
-session = require('next-session');
-connectMongo = require('connect-mongo');
-const { run } = require('micro')
+const session = require('next-session');
+const connectMongo = require('connect-mongo');
+const { run } = require("micro");
 
 const MongoStore = connectMongo(session);
 
-const babelSession = handler => session.withSession(handler, {
-  store: new MongoStore({ url: process.env.MONGODB_URI }),
-});
+function withSession(req, res, next) {
+  return session({ store: new MongoStore({ client: req.dbClient }) })(req, res, next);
+}
 
-exports.default = run(babelSession);
+exports.withSession = withSession;

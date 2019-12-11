@@ -1,16 +1,15 @@
-const { ObjectId } = require('mongodb');
+const ObjectId = require('mongodb').ObjectId;
+const { run } = require("micro");
 
-const babelAuthentication = handler => (req, res) => {
+const authentication = (req, res, next) => {
   if (req.session.userId) {
-    console.log(req.session.userId);
     return req.db.collection('users').findOne(ObjectId(req.session.userId))
       .then((user) => {
-        console.log(user);
         if (user) req.user = user;
-        return handler(req, res);
+        return next();
       });
   }
-  return handler(req, res);
-};
+  return next();
+}
 
-module.exports = babelAuthentication;
+exports.authentication = authentication;

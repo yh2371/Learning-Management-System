@@ -1,16 +1,22 @@
-mongo = require('mongodb');
-const { run, send } = require("micro");
-//process.env.MONGODB_URI
-const client = new mongo.MongoClient("http://localhost:27017", { useNewUrlParser: true });
+const MongoClient = require('mongodb').MongoClient;
+const { run } = require("micro");
 
-const babelDatabase = handler => (req, res) => {
-  if (!client.isConnected()) {
-    return client.connect().then(() => {
-      req.db = client.db('nextjsmongodbapp');
-      return handler(req, res);
-    });
-  }
-  req.db = client.db('nextjsmongodbapp');
-  return handler(req, res);
-};
-exports.default = run(babelDatabase);
+const client = new MongoClient("mongodb://127.0.0.1:27017/", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const setUpDb = async (db) => {
+  await db.collection('tokens').createIndex('expireAt', { expireAfterSeconds: 0 });
+}
+
+const database = async (req, res, next) => {
+  if (!client.isConnected()) await client.connect();
+  req.dbClient = client;
+  req.db = client.db("babelDatabase");
+  await setUpDb(req.db);
+  return next();
+}
+
+exports.database = database;
+exports.setUpDb = setUpDb;

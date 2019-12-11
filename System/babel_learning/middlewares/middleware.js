@@ -1,7 +1,13 @@
-babelDatabase = require('./database');
-babelSession = require('./session');
-babelAuthentication = require('./authentication')
+const nextConnect = require('next-connect');
+const database = require('./database');
+const session = require('./session');
+const authentication = require('./authentication');
+const { run } = require("micro");
 
-module.exports = (handler) => babelDatabase(babelSession(babelAuthentication(handler)));
+const middleware = nextConnect();
 
-//export default middleware;
+middleware.use(database.database());
+middleware.use(session.withSession());
+middleware.use(authentication.authentication());
+
+exports.middleware = middleware;
