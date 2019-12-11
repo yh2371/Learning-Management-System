@@ -56,9 +56,9 @@ Software Engineering Fall 2019 Group Project
         - [ ] Login and Registration
           - Yiming
           - Status: UI Done, server communication in process
-        - [ ] Server and Database (MongoDB)
-          - Yiming
-          - Status: In progress
+        - [x] Server and Database (MongoDB)
+          - Yiming, Ellen(Aliyun mock server)
+          - Status: Constructed and tested
         - [x] Enrollment
           - Ellen
           - Status: Test done 
