@@ -2,16 +2,16 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Layout Types
-import { DefaultLayout } from "./layouts";
+import { DefaultLayout } from "../layouts";
 
 // Route Views
-import BlogOverview from "./views/BlogOverview";
-import UserProfileLite from "./views/UserProfileLite";
-import AddNewPost from "./views/AddNewPost";
-import Errors from "./views/Errors";
-import ComponentsOverview from "./views/ComponentsOverview";
-import Tables from "./views/Tables";
-import BlogPosts from "./views/BlogPosts";
+import BlogOverview from "./BlogOverview";
+import UserProfileLite from "./UserProfileLite";
+import AddNewPost from "./AddNewPost";
+import Errors from "./Errors";
+import ComponentsOverview from "./ComponentsOverview";
+import Tables from "./Tables";
+import BlogPosts from "./BlogPosts";
 
 export default [
   {

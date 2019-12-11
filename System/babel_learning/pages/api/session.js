@@ -1,4 +1,4 @@
-import middleware from '../../middlewares/withMiddleware';
+import middleware from '../../middlewares/middleware';
 
 const handler = (req, res) => {
   if (req.method === 'GET') {

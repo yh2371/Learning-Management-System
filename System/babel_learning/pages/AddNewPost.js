@@ -1,6 +1,7 @@
 import React from "react";
-import PageTitle from "../components/PageTitle";
-import PostEditor from "../components/Editor";
+
+import PageTitle from "../components/common/PageTitle";
+import PostEditor from "../components/add-new-post/Editor";
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import {
@@ -48,7 +49,7 @@ class AddNewPost extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.viewComments = this.viewComments.bind(this);
-
+    
     this.state = {
 
       open: false,
@@ -139,7 +140,7 @@ class AddNewPost extends React.Component {
         <Row noGutters className="page-header py-4">
           <PageTitle sm="4" title="Forum" subtitle="Posts" className="text-sm-left" />
           <Button pill onClick={this.toggle} theme='danger' style={{alignSelf: 'flex-end'}}>
-            <i className="material-icons">add</i> New Post
+            <i className="material-icons">add</i> New Post 
           </Button>
           <Modal open={open} toggle={this.toggle}>
             <PostEditor />
@@ -176,7 +177,7 @@ class AddNewPost extends React.Component {
                     />
                     </div>
                     </Collapse>
-
+                
                 </CardBody>
 
                 <CardFooter className="border-top d-flex">
@@ -199,13 +200,13 @@ class AddNewPost extends React.Component {
                   <Button theme="light" outline pill onClick={this.viewComments}>
                     <i className="material-icons">comment</i> Comments
                   </Button>
-
+                  
                   </div>
                 </CardFooter>
               </Card>
           ))}
 
-
+        
       </Container>
     );
   }

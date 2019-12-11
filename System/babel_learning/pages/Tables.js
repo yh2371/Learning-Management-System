@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/common/PageTitle";
+import Manager from "../components/FileManager";
 
 const Tables = () => (
   <Container fluid className="main-content-container px-4">
@@ -9,6 +10,8 @@ const Tables = () => (
     <Row noGutters className="page-header py-4">
       <PageTitle sm="4" title="Materials" subtitle="Resource" className="text-sm-left" />
     </Row>
+
+    <Manager />
 
     {/* Default Light Table */}
     <Row>

@@ -35,7 +35,7 @@ class SidebarMainNavbar extends React.Component {
                 id="main-logo"
                 className="d-inline-block align-top mr-1"
                 style={{ maxWidth: "25px" }}
-                src={require("../../../images/shards-dashboards-logo.svg")}
+                src={require("../../../images/avatars/0.jpg")}//shards-dashboards-logo.svg")}
                 alt="Tower of Babel"
               />
               {!hideLogoText && (

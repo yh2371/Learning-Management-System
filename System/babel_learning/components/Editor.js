@@ -3,7 +3,7 @@ import ReactQuill from "react-quill";
 import { Card, CardBody, Form, FormInput, Button, Row } from "shards-react";
 
 import "react-quill/dist/quill.snow.css";
-import "../../assets/quill.css";
+import "../assets/quill.css";
 
 const PostEditor = () => (
   <Card small className="mb-3">
