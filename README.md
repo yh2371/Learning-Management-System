@@ -16,10 +16,10 @@ Software Engineering Fall 2019 Group Project
         - Assigned: Yiming
         - Status: Complete
     - [ ] Feasibility Study
-        - Assigned: Rudy
+        - Assigned: Hongyi
         - Status:
     - [ ] Function Point Analysis
-        - Assigned: Rudy
+        - Assigned: Hongyi
         - Status:
     - [x] Project Development Work Plan (Gantt chart)
         - Assigned: Chunxiao
@@ -30,7 +30,7 @@ Software Engineering Fall 2019 Group Project
 
 2. Week 2:
     - [x] Use Case Model (Use Case Diagram + Use Case Documentation):
-        - Assigned: Rudy
+        - Assigned: Hongyi
         - Status: Complete
     - [x] Activity Diagram for 2 Key Use Cases:
         -  Assigned: Chunxiao
