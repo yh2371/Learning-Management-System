@@ -1,4 +1,4 @@
-import Router from 'next/router'
+//import Router from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import nextCookie from 'next-cookies'
 import Account from '../components/account'

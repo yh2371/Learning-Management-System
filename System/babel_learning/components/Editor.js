@@ -1,5 +1,5 @@
 import React from "react";
-import ReactQuill from "react-quill";
+//import ReactQuill from "react-quill";
 import { Card, CardBody, Form, FormInput, Button, Row } from "shards-react";
 
 import "react-quill/dist/quill.snow.css";
@@ -10,7 +10,7 @@ const PostEditor = () => (
     <CardBody>
       <Form className="add-new-post">
         <FormInput size="lg" className="mb-3" placeholder="Your Post Title" />
-        <ReactQuill className="add-new-post__editor mb-1" />
+        //<ReactQuill className="add-new-post__editor mb-1" />
         <Button theme="accent">
           <i className="material-icons">file_copy</i> Create New Post
         </Button>

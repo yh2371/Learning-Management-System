@@ -18,15 +18,15 @@ Software Engineering Fall 2019 Group Project
     - [ ] Feasibility Study
         - Assigned: Hongyi
         - Status:
-    - [ ] Function Point Analysis
+    - [x] Function Point Analysis
         - Assigned: Hongyi
-        - Status:
+        - Status: Complete
     - [x] Project Development Work Plan (Gantt chart)
         - Assigned: Chunxiao
         - Status: Draft Complete
-    - [ ] Choose and Justify Software Process Model
+    - [x] Choose and Justify Software Process Model
         - Assigned: Chunxiao
-        - Status:
+        - Status: Complete
 
 2. Week 2:
     - [x] Use Case Model (Use Case Diagram + Use Case Documentation):
@@ -47,22 +47,22 @@ Software Engineering Fall 2019 Group Project
 
 3. Week 3:
     - [ ] Implementation
-        - [ ] Homepage
+        - [x] Homepage
           - Ellen
-          - Status: In process
-        - [ ] Login and Registration
+          - Status: Complete
+        - [x] Login and Registration
           - Yiming
-          - Status: UI Done, server communication in process
-        - [ ] Server and Database (MongoDB)
+          - Status: UI Done, server communication in progress
+        - [x] Server and Database (MongoDB)
           - Yiming
-          - Status: In progress
-        - [ ] Enrollment
-        - [ ] File Upload and Gradebook
-        - [ ] Forum and Posts
+          - Status: Setup complete, communication in progress
+        - [x] Enrollment
+        - [x] File Upload and Gradebook
+        - [x] Forum and Posts
         - [ ] Feedback Form and Course Request
         - [ ] Notifications and Events
     - [ ] Implementation Documentation
-    - [ ] Test Plan
-    - [ ] Test Cases
-    - [ ] Test Results Document
-    - [ ] Presentation
+    - [x] Test Plan : Chunxiao
+    - [x] Test Cases : Chunxiao
+    - [x] Test Results Document: Chunxiao
+    - [x] Presentation

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GoogleAnalytics from "react-ga";
+import GoogleAnalytics from "../node_modules/react-ga";
 
 GoogleAnalytics.initialize(process.env.REACT_APP_GAID || "UA-115105611-2");
 
