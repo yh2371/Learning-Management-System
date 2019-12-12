@@ -15,9 +15,9 @@ Software Engineering Fall 2019 Group Project
     - [x] Requirement Gathering Report
         - Assigned: Yiming
         - Status: Complete
-    - [ ] Feasibility Study
+    - [x] Feasibility Study
         - Assigned: Hongyi
-        - Status:
+        - Status: Complete
     - [x] Function Point Analysis
         - Assigned: Hongyi
         - Status: Complete
@@ -72,7 +72,7 @@ Software Engineering Fall 2019 Group Project
           - Status: Complete
         - [x] File Upload
           - Ellen
-          - Status: File able to upload to database  
+          - Status: File able to upload locally  
         - [x] Forum and Posts
           - Ellen
           - Status: done
