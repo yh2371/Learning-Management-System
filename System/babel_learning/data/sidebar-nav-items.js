@@ -1,40 +1,29 @@
 export default function() {
   return [
     {
-      title: "Blog Dashboard",
-      to: "/blog-overview",
-      htmlBefore: '<i class="material-icons">edit</i>',
-      htmlAfter: ""
-    },
-    {
-      title: "Blog Posts",
+      title: "Homepage",
       htmlBefore: '<i class="material-icons">vertical_split</i>',
-      to: "/blog-posts",
+      to: "/homepage",
     },
     {
-      title: "Add New Post",
+      title: "Forum",
       htmlBefore: '<i class="material-icons">note_add</i>',
-      to: "/add-new-post",
+      to: "/forum",
     },
     {
-      title: "Forms & Components",
+      title: "Courses",
       htmlBefore: '<i class="material-icons">view_module</i>',
-      to: "/components-overview",
+      to: "/courses",
     },
     {
-      title: "Tables",
+      title: "Materials",
       htmlBefore: '<i class="material-icons">table_chart</i>',
-      to: "/tables",
+      to: "/materials",
     },
     {
       title: "User Profile",
       htmlBefore: '<i class="material-icons">person</i>',
-      to: "/user-profile-lite",
-    },
-    {
-      title: "Errors",
-      htmlBefore: '<i class="material-icons">error</i>',
-      to: "/errors",
+      to: "/user-profile",
     }
   ];
 }

@@ -1,8 +1,30 @@
 import React from "react";
-import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
+import { Container, Row} from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
-import Manager from "../components/FileManager";
+
+import { Form, Upload, message, Button, Icon } from 'antd';
+
+const { Dragger } = Upload;
+
+
+const props = {
+  name: 'file',
+  multiple: true,
+  action: 'https://www.mocky.io/v2/5185415ba171ea3a00704eed',
+  onChange(info) {
+    const { status } = info.file;
+    if (status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully.`);
+    } else if (status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
+
 
 const Tables = () => (
   <Container fluid className="main-content-container px-4">
@@ -11,149 +33,19 @@ const Tables = () => (
       <PageTitle sm="4" title="Materials" subtitle="Resource" className="text-sm-left" />
     </Row>
 
-    <Manager />
 
-    {/* Default Light Table */}
-    <Row>
-      <Col>
-        <Card small className="mb-4">
-          <CardHeader className="border-bottom">
-            <h6 className="m-0">Active Users</h6>
-          </CardHeader>
-          <CardBody className="p-0 pb-3">
-            <table className="table mb-0">
-              <thead className="bg-light">
-                <tr>
-                  <th scope="col" className="border-0">
-                    #
-                  </th>
-                  <th scope="col" className="border-0">
-                    First Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Last Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Country
-                  </th>
-                  <th scope="col" className="border-0">
-                    City
-                  </th>
-                  <th scope="col" className="border-0">
-                    Phone
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ali</td>
-                  <td>Kerry</td>
-                  <td>Russian Federation</td>
-                  <td>Gdańsk</td>
-                  <td>107-0339</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Clark</td>
-                  <td>Angela</td>
-                  <td>Estonia</td>
-                  <td>Borghetto di Vara</td>
-                  <td>1-660-850-1647</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Jerry</td>
-                  <td>Nathan</td>
-                  <td>Cyprus</td>
-                  <td>Braunau am Inn</td>
-                  <td>214-4225</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Colt</td>
-                  <td>Angela</td>
-                  <td>Liberia</td>
-                  <td>Bad Hersfeld</td>
-                  <td>1-848-473-7416</td>
-                </tr>
-              </tbody>
-            </table>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>
+      <Dragger {...props}>
+        <p className="ant-upload-drag-icon">
+          <Icon type="inbox" />
+        </p>
+        <p className="ant-upload-text">Click or drag file to this area to upload</p>
+        <p className="ant-upload-hint">
+          Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+          band files
+        </p>
+      </Dragger>
 
-    {/* Default Dark Table */}
-    <Row>
-      <Col>
-        <Card small className="mb-4 overflow-hidden">
-          <CardHeader className="bg-dark">
-            <h6 className="m-0 text-white">Active Users</h6>
-          </CardHeader>
-          <CardBody className="bg-dark p-0 pb-3">
-            <table className="table table-dark mb-0">
-              <thead className="thead-dark">
-                <tr>
-                  <th scope="col" className="border-0">
-                    #
-                  </th>
-                  <th scope="col" className="border-0">
-                    First Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Last Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Country
-                  </th>
-                  <th scope="col" className="border-0">
-                    City
-                  </th>
-                  <th scope="col" className="border-0">
-                    Phone
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ali</td>
-                  <td>Kerry</td>
-                  <td>Russian Federation</td>
-                  <td>Gdańsk</td>
-                  <td>107-0339</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Clark</td>
-                  <td>Angela</td>
-                  <td>Estonia</td>
-                  <td>Borghetto di Vara</td>
-                  <td>1-660-850-1647</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Jerry</td>
-                  <td>Nathan</td>
-                  <td>Cyprus</td>
-                  <td>Braunau am Inn</td>
-                  <td>214-4225</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Colt</td>
-                  <td>Angela</td>
-                  <td>Liberia</td>
-                  <td>Bad Hersfeld</td>
-                  <td>1-848-473-7416</td>
-                </tr>
-              </tbody>
-            </table>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>
+
   </Container>
 );
 

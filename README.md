@@ -42,25 +42,36 @@ Software Engineering Fall 2019 Group Project
         - Assigned: Yiming
         - Status: Draft complete, open to revision
     - [x] UI Design:
-        - Assigned: Ellen and Yiming
+        - Assigned: Ellen (Homepage, Forum, Materials, Notifications Pages) and Yiming
         - Status: Outlined Draft
 
 3. Week 3:
     - [ ] Implementation
+        - [x] Web app framework
+          - Ellen
+          - Status:  Common Sidebar and Navbar implemented
         - [x] Homepage
           - Ellen
-          - Status: Complete
+          - Status: UI done, test done
         - [x] Login and Registration
           - Yiming
-          - Status: UI Done, server communication in progress
+          - Status: UI Done, server communication in process
         - [x] Server and Database (MongoDB)
-          - Yiming
-          - Status: Setup complete, communication in progress
+          - Yiming, Ellen(Aliyun mock server)
+          - Status: Constructed and tested
         - [x] Enrollment
-        - [x] File Upload and Gradebook
+          - Ellen
+          - Status: Test done
+        - [x] File Upload
+          - Ellen
+          - Status: File able to upload to database  
         - [x] Forum and Posts
+          - Ellen
+          - Status: done
+        - [x] Notifications and Events
+            - Ellen
+            - Status: Event included in the homepage
         - [ ] Feedback Form and Course Request
-        - [ ] Notifications and Events
     - [ ] Implementation Documentation
     - [x] Test Plan : Chunxiao
     - [x] Test Cases : Chunxiao

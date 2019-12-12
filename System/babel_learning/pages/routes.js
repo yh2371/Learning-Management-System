@@ -18,7 +18,7 @@ export default [
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    component: () => <Redirect to="/homepage" />
   },
   {
     path: "/blog-overview",
@@ -31,27 +31,22 @@ export default [
     component: UserProfileLite
   },
   {
-    path: "/add-new-post",
+    path: "/forum",
     layout: DefaultLayout,
     component: UserProfileLite
   },
   {
-    path: "/errors",
-    layout: DefaultLayout,
-    component: Errors
-  },
-  {
-    path: "/components-overview",
+    path: "/courses",
     layout: DefaultLayout,
     component: ComponentsOverview
   },
   {
-    path: "/tables",
+    path: "/materials",
     layout: DefaultLayout,
     component: Tables
   },
   {
-    path: "/blog-posts",
+    path: "/homepage",
     layout: DefaultLayout,
     component: BlogPosts
   }
