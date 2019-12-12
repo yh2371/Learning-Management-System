@@ -27,6 +27,9 @@ Software Engineering Fall 2019 Group Project
     - [x] Choose and Justify Software Process Model
         - Assigned: Chunxiao
         - Status: Complete
+    - [x] Webapp sitemap
+        - Assigned: Ellen(Mengchen Xu)
+        - Status: Complete
 
 2. Week 2:
     - [x] Use Case Model (Use Case Diagram + Use Case Documentation):
@@ -46,7 +49,7 @@ Software Engineering Fall 2019 Group Project
         - Status: Outlined Draft
 
 3. Week 3:
-    - [ ] Implementation
+    - [x] Implementation
         - [x] Web app framework
           - Ellen
           - Status:  Common Sidebar and Navbar implemented
@@ -59,9 +62,14 @@ Software Engineering Fall 2019 Group Project
         - [x] Server and Database (MongoDB)
           - Yiming, Ellen(Aliyun mock server)
           - Status: Constructed and tested
+        - [x] Courses list
+          - Ellen
+          - Functionality: course list search by keyword, filter by status
+          - Status: Complete
         - [x] Enrollment
           - Ellen
-          - Status: Test done
+          - Functionality: Enroll student into the course  
+          - Status: Complete
         - [x] File Upload
           - Ellen
           - Status: File able to upload to database  
@@ -71,8 +79,7 @@ Software Engineering Fall 2019 Group Project
         - [x] Notifications and Events
             - Ellen
             - Status: Event included in the homepage
-        - [ ] Feedback Form and Course Request
-    - [ ] Implementation Documentation
+        - Todo: Feedback Form and Course Request
     - [x] Test Plan : Chunxiao
     - [x] Test Cases : Chunxiao
     - [x] Test Results Document: Chunxiao
